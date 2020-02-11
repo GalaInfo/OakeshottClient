@@ -1,0 +1,188 @@
+body{
+    background-color: #161615;
+}
+
+label{
+    color:white;
+}
+
+button{
+    background-color: #2a2b28 !important;
+    color: white !important;
+}
+
+h2, h4{
+    text-align: center;
+    color: white;
+}
+
+p{    
+    color: white;
+}
+
+hr{
+    border: 0.5px solid white
+}
+
+.jumbotron{
+    background-color: #2a2b28;
+    text-align: center;
+}
+
+.logo {
+    max-width: 70%;
+    height: 70%;
+}
+
+grey{
+    background-color: #2a2b28;
+}
+
+.col-sm-12{
+    text-align: center;
+}
+
+.form-group{
+    text-align: center;
+}
+
+.nav-link{
+    color: white;
+    background-color: #161615;
+}
+
+.nav-link.active{
+    color: white !important;
+    background-color: #2a2b28 !important;
+}
+
+.navbar-nav .nav-item .nav-link:hover{
+    color: #2a2b28;
+}
+
+.nav-search{
+    max-width: 500px;
+    height: auto;
+    margin-left: 200px;
+}
+
+.nav-item{
+    font-size: 1.1em;
+    margin-left: 50px;
+}
+
+.search-btn{
+    background-color: #f7f6f6;
+}
+
+.search-btn:hover{
+    background-color: #d6d6d6;
+}
+
+a, a:hover{
+    color: #2a2b28;
+}
+
+.alert{
+    text-align: center;
+}
+
+.col-md-4 > ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+small{
+    color: black;
+    font-size: 0.7em;
+}
+
+.mt-3 > .btn{
+    font-size: 1.2em;
+}
+
+.arrows span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.arrows span:after {
+    content: '\00bb';
+    opacity: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.arrows:hover span{
+    padding-right: 20px;
+}
+
+.arrows:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.navbar{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.col-lg-2, .col-lg-4 > img{
+    max-width: 250px;
+}
+
+input[name="candidati"]{
+    margin-bottom: 5px;
+    width: inherit;
+}
+
+td .form-control[type="number"]{
+    width: 100px;
+}
+
+.spinner-border{
+    color: #2a2b28;
+    width: 3rem;
+    height: 3rem;
+}
+
+.hidden{
+    display: none;
+}
+
+.radio-text{
+    color: white;
+}
+
+.form-control{
+    background-color: #161615;
+    color: white;
+}
+
+.rotated{
+    transform: rotate(-90deg)
+}
+
+/* HIDE RADIO */
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+    cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+    outline: 5px solid red;
+}
+
+#result{
+    color: white;
+}

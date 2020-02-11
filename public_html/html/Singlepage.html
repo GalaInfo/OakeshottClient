@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-signin-client_id" content="617542772314-keo0t31kssvhk31g3ghjhho21m8s53cm.apps.googleusercontent.com">
+
+        <title>The Oakeshott classifier</title>
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <link rel="icon" href="../img/icon.png" type="image/png">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+        <link href="../css/style.css" rel="stylesheet">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script src="../js/singlepage.js" type="text/javascript"></script>
+        <script src="../js/templateBuilder.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <!-- Jumbotron -->
+        <div class="jumbotron text-white">  
+            <a id="link" href=""><img class="logo" src="../img/logo.png" alt="logo"/></a>
+            <p class="mt-3 mx-4" id="description"></p>
+        </div>
+        <h2>Classify a sword or search for examples</h2>
+        <div class="container">
+            <div class="row my-4">
+                <div class="col-lg-12">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a href="" data-target="#classify" data-toggle="tab" class="nav-link active">Classify</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" data-target="#search" data-toggle="tab" class="nav-link">Search</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content pb-3">
+                        <div class="tab-pane active" id="classify">
+                            <div class="row my-4">
+                                <div class="col-md-12 mx-auto">
+                                    <form id="swordClass">
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                <label>Grip Type</label>
+                                                <select class="selectpicker form-control" name="cgrip">
+                                                    <option value="1">One Handed</option>
+                                                    <option value="2">Two Handed</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>Blade Length</label>
+                                                <input type="number" class="form-control" name="clength" placeholder="Blade length in cm" required>
+                                            </div>
+                                        </div>
+                                        <h2>Pommel Type</h2>
+                                        <hr>
+                                        <div class="form-group row">                                            
+                                            <div class="form-group row">
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="A" checked>
+                                                        <img src="../img/pommels/pic_oakeshott_pom_a.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">A</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="B">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_b.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">B</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="B1">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_b1.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">B1</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="C">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_c.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">C</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="D">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_d.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">D</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="E">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_e.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">E</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="F">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_f.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">F</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="G">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_g.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">G</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="G1">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_g1.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">G1</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="G2">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_g2.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">G2</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="H">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_h.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">H</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="H1">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_h1.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">H1</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="I">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_i.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">I</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="I1">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_i1.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">I1</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="J">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_j.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">J</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="J1">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_j1.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">J1</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="K">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_k.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">K</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="L">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_l.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">L</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="M">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_m.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">M</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="N">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_n.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">N</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="O">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_o.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">O</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="P">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_p.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">P</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="Q">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_q.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">Q</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="R">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_r.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">R</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="S">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_s.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">S</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="T">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_t.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">T</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="T1">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_t1.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">T1</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="T2">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_t2.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">T2</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="T3">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_t3.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">T3</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="T4">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_t4.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">T4</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="T5">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_t5.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">T5</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="U">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_u.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">U</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="V">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_v.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">V</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="V1">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_v1.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">V1</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="V2">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_v2.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">V2</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="W">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_w.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">W</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="cpommel" value="Z">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_z.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">Z</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h2>Guard Type</h2>
+                                        <hr>
+                                        <div class="form-group row">
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="cguard" value="Guard01" checked>
+                                                    <img src="../img/guards/pic_oakeshott_cross1.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">1</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="cguard" value="Guard02">
+                                                    <img src="../img/guards/pic_oakeshott_cross2.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">2</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="cguard" value="Guard03">
+                                                    <img src="../img/guards/pic_oakeshott_cross3.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">3</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="cguard" value="Guard04">
+                                                    <img src="../img/guards/pic_oakeshott_cross4.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">4</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="cguard" value="Guard05">
+                                                    <img src="../img/guards/pic_oakeshott_cross5.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">5</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="cguard" value="Guard06">
+                                                    <img src="../img/guards/pic_oakeshott_cross6.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">6</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="cguard" value="Guard07">
+                                                    <img src="../img/guards/pic_oakeshott_cross7.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">7</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="cguard" value="Guard08">
+                                                    <img src="../img/guards/pic_oakeshott_cross8.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">8</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="cguard" value="Guard09">
+                                                    <img src="../img/guards/pic_oakeshott_cross9.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">9</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="cguard" value="Guard10">
+                                                    <img src="../img/guards/pic_oakeshott_cross10.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">10</p>
+                                            </div><div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="cguard" value="Guard11">
+                                                    <img src="../img/guards/pic_oakeshott_cross1.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">11</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="cguard" value="Guard12">
+                                                    <img src="../img/guards/pic_oakeshott_cross12.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">12</p>
+                                            </div>
+                                        </div>
+                                        <h2>Cross section</h2>
+                                        <hr>
+                                        <div class="form-group row">                                            
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="csection" value="Lenticular" checked>
+                                                    <img src="../img/sections/lenticular.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Lenticular</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="csection" value="Hexagonal">
+                                                    <img src="../img/sections/hexagonal.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Hexagonal</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="csection" value="Diamond">
+                                                    <img src="../img/sections/diamond.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Diamond</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="csection" value="Hollow-Ground">
+                                                    <img src="../img/sections/hollow-ground.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Hollow-ground</p>
+                                            </div>
+                                        </div>
+                                        <h2>Fuller Type</h2>
+                                        <hr>
+                                        <div class="form-group row">                                            
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="cfuller" value="None" checked>
+                                                    <img src="../img/fullers/none.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">None</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="cfuller" value="Wide">
+                                                    <img src="../img/fullers/wide.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Wide</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="cfuller" value="Narrow">
+                                                    <img src="../img/fullers/narrow.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Narrow</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="cfuller" value="Multiple">
+                                                    <img src="../img/fullers/multiple.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Multiple</p>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn arrows col-sm-3 float-right"><span>Classify </span></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="search">
+                            <div class="row my-4">
+                                <div class="col-md-12 mx-auto">
+                                    <form id="swordSearch">
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                <label>Name</label>
+                                                <input type="text" class="form-control" name="name" placeholder="E.g. King Pitu's sword">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>Country</label>
+                                                <select class="selectpicker form-control" name="country">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label>MIN Blade Length</label>
+                                                <input type="number" class="form-control" name="minlength" placeholder="Blade length in cm">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label>MAX Blade Length</label>
+                                                <input type="number" class="form-control" name="maxlength" placeholder="Blade length in cm">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label>Function</label>
+                                                <select class="selectpicker form-control" name="function">                                                    
+                                                    <option>Any</option>
+                                                    <option>Cutting</option>
+                                                    <option>Thrusting</option>
+                                                    <option>Cutting and Thrusting</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <h2>Pommel Type</h2>
+                                        <hr>
+                                        <div class="form-group row">                                            
+                                            <div class="form-group row">
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="Any" checked>
+                                                        <img src="../img/any/anyPom.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">Any</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="A">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_a.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">A</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="B">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_b.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">B</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="B1">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_b1.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">B1</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="C">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_c.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">C</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="D">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_d.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">D</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="E">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_e.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">E</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="F">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_f.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">F</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="G">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_g.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">G</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="G1">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_g1.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">G1</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="G2">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_g2.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">G2</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="H">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_h.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">H</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="H1">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_h1.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">H1</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="I">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_i.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">I</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="I1">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_i1.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">I1</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="J">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_j.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">J</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="J1">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_j1.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">J1</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="K">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_k.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">K</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="L">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_l.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">L</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="M">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_m.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">M</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="N">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_n.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">N</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="O">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_o.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">O</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="P">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_p.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">P</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="Q">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_q.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">Q</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="R">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_r.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">R</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="S">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_s.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">S</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="T">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_t.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">T</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="T1">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_t1.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">T1</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="T2">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_t2.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">T2</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="T3">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_t3.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">T3</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="T4">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_t4.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">T4</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="T5">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_t5.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">T5</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="U">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_u.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">U</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="V">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_v.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">V</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="V1">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_v1.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">V1</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="V2">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_v2.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">V2</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="W">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_w.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">W</p>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="radio">
+                                                        <input type="radio" name="spommel" value="Z">
+                                                        <img src="../img/pommels/pic_oakeshott_pom_z.jpg" alt=""/>
+                                                    </label>
+                                                    <p class="radio-text">Z</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h2>Guard Type</h2>
+                                        <hr>
+                                        <div class="form-group row">
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sguard" value="Any" checked>
+                                                    <img src="../img/any/anyGuard.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Any</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sguard" value="Guard01">
+                                                    <img src="../img/guards/pic_oakeshott_cross1.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">1</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sguard" value="Guard02">
+                                                    <img src="../img/guards/pic_oakeshott_cross2.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">2</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sguard" value="Guard03">
+                                                    <img src="../img/guards/pic_oakeshott_cross3.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">3</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sguard" value="Guard04">
+                                                    <img src="../img/guards/pic_oakeshott_cross4.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">4</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sguard" value="Guard05">
+                                                    <img src="../img/guards/pic_oakeshott_cross5.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">5</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sguard" value="Guard06">
+                                                    <img src="../img/guards/pic_oakeshott_cross6.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">6</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sguard" value="Guard07">
+                                                    <img src="../img/guards/pic_oakeshott_cross7.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">7</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sguard" value="Guard08">
+                                                    <img src="../img/guards/pic_oakeshott_cross8.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">8</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sguard" value="Guard09">
+                                                    <img src="../img/guards/pic_oakeshott_cross9.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">9</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sguard" value="Guard10">
+                                                    <img src="../img/guards/pic_oakeshott_cross10.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">10</p>
+                                            </div><div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sguard" value="Guard11">
+                                                    <img src="../img/guards/pic_oakeshott_cross1.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">11</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sguard" value="Guard12">
+                                                    <img src="../img/guards/pic_oakeshott_cross12.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">12</p>
+                                            </div>
+                                        </div>
+                                        <h2>Cross Section</h2>
+                                        <hr>
+                                        <div class="form-group row">
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="ssection" value="Any" checked>
+                                                    <img src="../img/any/anySection.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Any</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="ssection" value="Lenticular">
+                                                    <img src="../img/sections/lenticular.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Lenticular</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="ssection" value="Hexagonal">
+                                                    <img src="../img/sections/hexagonal.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Hexagonal</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="ssection" value="Diamond">
+                                                    <img src="../img/sections/diamond.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Diamond</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="ssection" value="Hollow-Ground">
+                                                    <img src="../img/sections/hollow-ground.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Hollow-ground</p>
+                                            </div>
+                                        </div>
+                                        <h2>Fuller Type</h2>
+                                        <hr>
+                                        <div class="form-group row">
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sfuller" value="Any" checked>
+                                                    <img src="../img/any/anyFuller.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Any</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sfuller" value="None">
+                                                    <img src="../img/fullers/none.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">None</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sfuller" value="Wide">
+                                                    <img src="../img/fullers/wide.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Wide</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sfuller" value="Narrow">
+                                                    <img src="../img/fullers/narrow.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Narrow</p>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="radio">
+                                                    <input type="radio" name="sfuller" value="Multiple">
+                                                    <img src="../img/fullers/multiple.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Multiple</p>
+                                            </div>
+                                        </div>
+                                        <h2>Sword Type</h2>
+                                        <hr>
+                                        <div class="form-group row">
+                                             <div class="col-sm-12">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="Any" checked>
+                                                    <img src="../img/any/anytype.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Any</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="OneHanded">
+                                                    <img class ="img-fluid" src="../img/types/Type X.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">One Handed</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TwoHanded">
+                                                    <img class ="img-fluid" src="../img/types/Type XIIIa.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Two Handed</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeX">
+                                                    <img class ="img-fluid" src="../img/types/Type X.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type X</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXa">
+                                                    <img class ="img-fluid" src="../img/types/Type Xa.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type Xa</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXI">
+                                                    <img class ="img-fluid" src="../img/types/Type XI.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XI</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXIa">
+                                                    <img class ="img-fluid" src="../img/types/Type XIa.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XIa</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXII">
+                                                    <img class ="img-fluid" src="../img/types/Type XII.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XII</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXIIa">
+                                                    <img class ="img-fluid" src="../img/types/Type XIIa.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XIIa</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXIII">
+                                                    <img class ="img-fluid" src="../img/types/Type XIII.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XIII</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXIIIa">
+                                                    <img class ="img-fluid" src="../img/types/Type XIIIa.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XIIIa</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXIIIb">
+                                                    <img class ="img-fluid" src="../img/types/Type XIIIb.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XIIIb</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXIV">
+                                                    <img class ="img-fluid" src="../img/types/Type XIV.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XIV</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXV">
+                                                    <img class ="img-fluid" src="../img/types/Type XV.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XV</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXVa">
+                                                    <img class ="img-fluid" src="../img/types/Type XVa.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XVa</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXVI">
+                                                    <img class ="img-fluid" src="../img/types/Type XVI.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XVI</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXVIa">
+                                                    <img class ="img-fluid" src="../img/types/Type XVIa.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XVIa</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXVII">
+                                                    <img class ="img-fluid" src="../img/types/Type XVII.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XVII</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXVIII">
+                                                    <img class ="img-fluid" src="../img/types/Type XVIII.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XVIII</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXVIIIa">
+                                                    <img class ="img-fluid" src="../img/types/Type XVIIIa.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XVIIIa</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXVIIIb">
+                                                    <img class ="img-fluid" src="../img/types/Type XVIIIb.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XVIIIb</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXVIIIc">
+                                                    <img class ="img-fluid" src="../img/types/Type XVIIIc.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XVIIIc</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXIX">
+                                                    <img class ="img-fluid" src="../img/types/Type XIX.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XIX</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXX">
+                                                    <img class ="img-fluid" src="../img/types/Type XX.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XX</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXXa">
+                                                    <img class ="img-fluid" src="../img/types/Type XXa.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XXa</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXXI">
+                                                    <img class ="img-fluid" src="../img/types/Type XXI.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XXI</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio">
+                                                    <input type="radio" name="type" value="TypeXXII">
+                                                    <img class ="img-fluid" src="../img/types/Type XXII.jpg" alt=""/>
+                                                </label>
+                                                <p class="radio-text">Type XXII</p>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn arrows col-sm-3 float-right"><span>Search </span></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="my-4">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border hidden" role="status" id="spinner"></div>
+                    <div class="row" id="userslist"></div>
+                </div>
+                <div class="col-sm-12" id = "result">
+                </div>
+            </div>
+        </div>
+    </body>
